@@ -1,7 +1,7 @@
-# howeverpipecat - 实时语音智能体工程分发版 | Real-time Voice Agent Distribution
+# pipecat-engine - howeverpipecat-ai 实时语音智能体工程发行版 | Real-time Voice Agent Distribution
 
 <p align="center">
-  <img src="docs/assets/howeverpipecat-logo.svg" alt="howeverpipecat logo" width="760" />
+  <img src="docs/assets/howeverpipecat-logo.svg" alt="howeverpipecat-ai package logo" width="760" />
 </p>
 
 🔥 一个面向实时语音与多模态智能体落地的 Pipecat 工程化发行版。  
@@ -11,12 +11,15 @@
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python)](https://www.python.org/)
 [![Build](https://img.shields.io/badge/Build-uv-6C47FF)](https://docs.astral.sh/uv/)
 [![License](https://img.shields.io/badge/License-BSD--2--Clause-16A34A)](./LICENSE)
-[![Repository](https://img.shields.io/badge/Repo-however--yir%2Fhoweverpipecat-0EA5E9)](https://github.com/however-yir/howeverpipecat)
+[![Repository](https://img.shields.io/badge/Repo-however--yir%2Fpipecat--engine-0EA5E9)](https://github.com/however-yir/pipecat-engine)
 
 > **非官方声明（Non-Affiliation）**<br>
-> `howeverpipecat` 是基于 `pipecat-ai/pipecat` 的社区维护衍生发行版，与上游项目及其权利主体不存在官方关联、授权背书或从属关系。<br>
+> `however-yir/pipecat-engine` 是基于 `pipecat-ai/pipecat` 的社区维护衍生发行版，与上游项目及其权利主体不存在官方关联、授权背书或从属关系。<br>
 > **商标声明（Trademark Notice）**<br>
 > `Pipecat` 及相关项目名称、Logo 与商标归其各自权利人所有；本仓库仅用于说明上游来源与兼容关系。
+
+> **命名说明（Naming）**<br>
+> 仓库名是 `pipecat-engine`，用于承载 fork 的工程化治理、Issue、CI 与发布记录。Python 包发布名是 `howeverpipecat-ai`，用于在包索引中与 upstream 的 `pipecat-ai` 区分；安装后 import 路径仍保持 `pipecat.*`，降低迁移成本。
 
 ---
 
@@ -45,7 +48,7 @@
 
 ## 1. 项目定位
 
-`howeverpipecat` 不是对 upstream 的“简单镜像”，而是一个工程化发行分支：
+`pipecat-engine` 不是对 upstream 的“简单镜像”，而是发布 `howeverpipecat-ai` 的工程化发行分支：
 
 1. 保留 Pipecat 在实时语音与多模态 pipeline 方面的核心能力。
 2. 增强本地化部署与私有化改造的高频薄弱环节。
@@ -64,10 +67,14 @@
 
 ## 3. 与 Upstream 的关系与边界
 
-- Upstream：`pipecat-ai/pipecat`
-- 当前仓库：`however` 发行版（fork distribution）
-- 保留策略：保留 upstream 许可证与核心目录结构。
-- 增量策略：新增 fork 自有配置模板、健康检查脚本、命名规范、CI 门禁与文档。
+| 项 | 说明 |
+|---|---|
+| 上游仓库 | [`pipecat-ai/pipecat`](https://github.com/pipecat-ai/pipecat) |
+| 当前 fork | [`however-yir/pipecat-engine`](https://github.com/however-yir/pipecat-engine)，面向工程化落地的 Pipecat 发行版 |
+| 包发布名 | `howeverpipecat-ai`，与仓库名不同是为了在包索引中表达 fork 发行身份 |
+| 当前定位 | 保留 upstream 实时语音与多模态 pipeline 能力，补齐私有化部署常用的配置、健康检查、安全扫描、质量门禁与迁移文档 |
+| 同步策略 | 以 upstream `main`/正式发布为同步来源，按月度窗口或安全修复需要合并；每次同步后运行新增回归、健康检查、命名 lint、secrets scan 与依赖安全扫描 |
+| 兼容边界 | 保持 `pipecat.*` import、核心 pipeline API 与许可证信息；fork 增量优先放在 `env.however.example`、`scripts/however_*`、`docs/however_*` 等独立文件中 |
 
 ### 3.1 边界原则
 
@@ -83,7 +90,8 @@
 ### 4.1 发布与品牌
 
 - 包发布名改为 `howeverpipecat-ai`。
-- 项目首页与文档统一 `howeverpipecat` 品牌。
+- 仓库首页、源码、Issue 与 Changelog 统一指向 `however-yir/pipecat-engine`。
+- 文档中保留 `howeverpipecat-ai` 作为 Python 包名，不再把它当作仓库名使用。
 - 新增仓库元信息脚本：`scripts/however_set_repo_metadata.sh`。
 
 ### 4.2 命名与兼容
@@ -141,8 +149,8 @@
 
 ```bash
 # 1) 克隆
-git clone https://github.com/however-yir/howeverpipecat.git
-cd howeverpipecat
+git clone https://github.com/however-yir/pipecat-engine.git
+cd pipecat-engine
 
 # 2) 安装基础开发依赖（不要求全量 extras）
 uv sync --group dev
@@ -154,8 +162,35 @@ cp env.however.example .env.however.local
 uv run python scripts/however_service_health.py --skip-network --json
 
 # 5) 跑 fork 新增回归
-uv run pytest tests/test_ollama_llm.py tests/test_however_runtime_config.py tests/test_however_health.py
+uv run pytest tests/test_however_runtime_config.py tests/test_however_health.py
 ```
+
+### 6.3 最小语音 Agent demo
+
+这条路径先验证 fork 发行版的本地配置与健康检查，再启动 upstream 兼容的最小语音 Agent 示例。
+
+```bash
+# 安装基础开发依赖
+uv sync --group dev
+
+# 复制 fork 运行时配置模板；health check 默认读取 .env.however.local
+cp env.however.example .env.however.local
+
+# examples 仍沿用 upstream 的 .env 约定；填入 OPENAI_API_KEY / DEEPGRAM_API_KEY / CARTESIA_API_KEY
+cp env.however.example .env
+
+# 离线健康检查，不访问真实 DB / Redis / Ollama / Telemetry
+uv run python scripts/however_service_health.py --skip-network --json
+
+# 最小 fork 回归测试
+uv run pytest tests/test_however_runtime_config.py tests/test_however_health.py
+
+# 启动最小语音 Agent 示例前安装所需 transport / STT / TTS extras
+uv sync --group dev --extra runner --extra webrtc --extra deepgram --extra cartesia
+uv run python examples/getting-started/06-voice-agent.py -t webrtc
+```
+
+启动后打开 http://localhost:7860/client/，点击 Connect 进行本地语音对话。
 
 ---
 
@@ -269,7 +304,7 @@ python scripts/however_naming_lint.py
 
 ```bash
 # fork 新增测试
-uv run pytest tests/test_ollama_llm.py tests/test_however_runtime_config.py tests/test_however_health.py
+uv run pytest tests/test_however_runtime_config.py tests/test_however_health.py
 
 # 健康检查（离线）
 uv run python scripts/however_service_health.py --skip-network --json
@@ -288,17 +323,18 @@ bash scripts/however_dependency_security_scan.sh
 
 ## 13. 与原版差异清单
 
-| 类别 | Upstream | however 发行版 |
-|---|---|---|
-| 包发布名 | `pipecat-ai` | `howeverpipecat-ai` |
-| Ollama 命名 | `OLLamaLLMService` | 推荐 `OllamaLLMService`，保留兼容别名 |
-| 配置模板 | `env.example` | 新增 `env.however.example` + `configs/services.example.yaml` |
-| 运行时检查 | 无统一脚本 | 新增 `however_service_health.py` + `however_health` 模块 |
-| 命名治理 | 无 | 新增 `however_naming_lint.py` |
-| 敏感信息扫描 | 无 | 新增 `however_secrets_scan.sh` |
-| 依赖安全门禁 | 无 | 新增 `however_dependency_security_scan.sh` 与 CI 门禁 |
-| 协议补充 | `LICENSE` | 新增 `LICENSE.HOWEVER` |
-| 运维模板 | 无 | 新增 Issue 模板与 Release Notes 模板 |
+| 差异项 | 文件 / 能力 | 作用 | 兼容说明 |
+|---|---|---|---|
+| 包发布名 | `howeverpipecat-ai` | 与 upstream `pipecat-ai` 做包索引层面的发行区分 | import 仍保持 `pipecat.*` |
+| 配置模板 | `env.however.example`、`configs/services.example.yaml` | 收敛 DB / Redis / Ollama / Telemetry 等本地化部署变量 | 不替换 upstream `env.example` |
+| fork 脚本 | `scripts/however_*` | 承载命名检查、仓库元信息、健康检查、依赖安全扫描、secrets scan 等治理动作 | 独立脚本，避免改写 upstream 主流程 |
+| fork 文档 | `docs/however_*` | 记录版本策略、命名规范、依赖策略、迁移指南、排障 checklist 与路线图 | 作为补充文档，不覆盖 upstream 文档结构 |
+| Health check | `src/pipecat/utils/however_health.py`、`scripts/however_service_health.py` | 输出统一的 `env`、`region`、`status`、`latency_ms`、`fault_type`，支持离线检查 | 默认可 `--skip-network`，适合作为 CI smoke test |
+| Secrets scan | `scripts/however_secrets_scan.sh` | 发布前扫描常见密钥、token 与本地配置泄漏风险 | 与 `.gitignore` / 示例 env 配合使用 |
+| Ollama 命名 | `OllamaLLMService` | 修正类名大小写，并保留 `OLLamaLLMService` 兼容别名 | 旧名会给出迁移提示 |
+| 依赖安全门禁 | `scripts/however_dependency_security_scan.sh`、`.github/workflows/however-dependency-security.yaml` | 发布前检查依赖风险 | 作为 fork 门禁补充 |
+| 协议补充 | `LICENSE.HOWEVER` | 说明 fork 补充分发边界 | 保留 upstream `LICENSE` |
+| 运维模板 | `.github/ISSUE_TEMPLATE/however_runtime_bug.yml`、`.github/RELEASE_NOTES_TEMPLATE.md` | 标准化运行时问题和发布说明 | 与原有模板并存 |
 
 ---
 

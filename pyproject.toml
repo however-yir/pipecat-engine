@@ -45,11 +45,11 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/however-yir/howeverpipecat"
-Documentation = "https://github.com/however-yir/howeverpipecat/tree/main/docs"
-Source = "https://github.com/however-yir/howeverpipecat"
-Issues = "https://github.com/however-yir/howeverpipecat/issues"
-Changelog = "https://github.com/however-yir/howeverpipecat/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/however-yir/pipecat-engine"
+Documentation = "https://github.com/however-yir/pipecat-engine/tree/main/docs"
+Source = "https://github.com/however-yir/pipecat-engine"
+Issues = "https://github.com/however-yir/pipecat-engine/issues"
+Changelog = "https://github.com/however-yir/pipecat-engine/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 aic = [ "aic-sdk~=2.1.0" ]
@@ -226,7 +226,7 @@ directory = "changelog"
 start_string = "<!-- towncrier release notes start -->\n"
 template = "changelog/_template.md.j2"
 title_format = "## [{version}] - {project_date}"
-issue_format = "[#{issue}](https://github.com/however-yir/howeverpipecat/pull/{issue})"
+issue_format = "[#{issue}](https://github.com/however-yir/pipecat-engine/pull/{issue})"
 underlines = ["", "", ""]
 wrap = true
 
