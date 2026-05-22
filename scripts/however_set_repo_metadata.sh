@@ -2,10 +2,10 @@
 set -euo pipefail
 
 OWNER="${1:-however-yir}"
-REPO="${2:-howeverpipecat}"
+REPO="${2:-pipecat-engine}"
 FULL="$OWNER/$REPO"
 
-DESCRIPTION="howeverpipecat: real-time voice and multimodal agent engineering distribution"
+DESCRIPTION="pipecat-engine: howeverpipecat-ai real-time voice and multimodal agent engineering distribution"
 HOMEPAGE="https://github.com/$FULL"
 
 gh repo edit "$FULL" \
