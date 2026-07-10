@@ -2396,7 +2396,7 @@ requires-dist = [
     { name = "azure-cognitiveservices-speech", marker = "extra == 'azure'", specifier = ">=1.47.0,<2" },
     { name = "camb-sdk", marker = "extra == 'camb'", specifier = ">=1.5.4,<2" },
     { name = "coremltools", marker = "extra == 'local-smart-turn'", specifier = ">=8.0" },
-    { name = "daily-python", marker = "extra == 'daily'", specifier = "~=0.27.0" },
+    { name = "daily-python", marker = "extra == 'daily'", specifier = ">=0.27,<0.29" },
     { name = "deepgram-sdk", marker = "extra == 'deepgram'", specifier = ">=6.1.1,<7" },
     { name = "docstring-parser", specifier = ">=0.16,<1" },
     { name = "einops", marker = "extra == 'moondream'", specifier = "~=0.8.0" },
@@ -2474,7 +2474,7 @@ requires-dist = [
     { name = "sentry-sdk", marker = "extra == 'sentry'", specifier = ">=2.28.0,<3" },
     { name = "simli-ai", marker = "extra == 'simli'", specifier = "~=2.0.1" },
     { name = "soundfile", marker = "extra == 'soundfile'", specifier = "~=0.13.1" },
-    { name = "soxr", specifier = "~=1.0.0" },
+    { name = "soxr", specifier = ">=1.0,<1.2" },
     { name = "speechmatics-voice", extras = ["smart"], marker = "extra == 'speechmatics'", specifier = "~=0.2.8" },
     { name = "strands-agents", marker = "extra == 'strands'", specifier = ">=1.9.1,<2" },
     { name = "tenacity", marker = "extra == 'livekit'", specifier = ">=8.2.3,<10.0.0" },
@@ -2486,7 +2486,7 @@ requires-dist = [
     { name = "transformers", marker = "extra == 'moondream'", specifier = ">=4.48.0,<6" },
     { name = "uvicorn", marker = "extra == 'runner'", specifier = ">=0.32.0,<1.0.0" },
     { name = "wait-for2", marker = "python_full_version < '3.12'", specifier = ">=0.4.1,<1" },
-    { name = "websockets", marker = "extra == 'websockets-base'", specifier = ">=13.1,<16.0" },
+    { name = "websockets", marker = "extra == 'websockets-base'", specifier = ">=13.1,<17.0" },
 ]
 provides-extras = ["aic", "anthropic", "assemblyai", "asyncai", "aws", "aws-nova-sonic", "azure", "cartesia", "camb", "cerebras", "daily", "deepgram", "deepseek", "elevenlabs", "fal", "fireworks", "fish", "gladia", "google", "gradium", "grok", "groq", "gstreamer", "heygen", "hume", "inworld", "koala", "kokoro", "langchain", "lemonslice", "livekit", "lmnt", "local", "local-smart-turn", "mcp", "mem0", "mistral", "mlx-whisper", "moondream", "nebius", "neuphonic", "novita", "nvidia", "openai", "rnnoise", "openrouter", "perplexity", "piper", "qwen", "resembleai", "rime", "runner", "sagemaker", "sambanova", "sarvam", "sentry", "silero", "simli", "smallest", "soniox", "soundfile", "speechmatics", "strands", "tavus", "together", "tracing", "ultravox", "webrtc", "websocket", "websockets-base", "whisper", "xai"]
 
@@ -2494,7 +2494,7 @@ provides-extras = ["aic", "anthropic", "assemblyai", "asyncai", "aws", "aws-nova
 dev = [
     { name = "build", specifier = "~=1.4.0" },
     { name = "coverage", specifier = "~=7.13.4" },
-    { name = "grpcio-tools", specifier = "~=1.78.0" },
+    { name = "grpcio-tools", specifier = ">=1.78,<1.81" },
     { name = "pip-tools", specifier = "~=7.5.3" },
     { name = "pre-commit", specifier = "~=4.5.1" },
     { name = "pyright", specifier = ">=1.1.404,<1.2" },
@@ -2504,7 +2504,7 @@ dev = [
     { name = "python-dotenv", specifier = ">=1.0.1,<2.0.0" },
     { name = "ruff", specifier = ">=0.12.11,<1" },
     { name = "setuptools", specifier = "~=78.1.1" },
-    { name = "setuptools-scm", specifier = "~=8.3.1" },
+    { name = "setuptools-scm", specifier = ">=8.3.1,<10.1.0" },
     { name = "towncrier", specifier = "~=25.8.0" },
 ]
 docs = [
@@ -4527,11 +4527,11 @@ wheels = [
 
 [[package]]
 name = "pip"
-version = "26.1"
+version = "26.1.2"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/73/7e/d2b04004e1068ad4fdfa2f227b839b5d03e602e47cdbbf49de71137c9546/pip-26.1.tar.gz", hash = "sha256:81e13ebcca3ffa8cc85e4deff5c27e1ee26dea0aa7fc2f294a073ac208806ff3", size = 1840316, upload-time = "2026-04-26T21:00:05.406Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/01/91/47e7d486260f618783899587af63ccf7980fb60245c3e63dd4571c6b57ad/pip-26.1.2.tar.gz", hash = "sha256:f49cd134c61cf2fd75e0ce2676db03e4054504a5a4986d00f8299ae632dc4605", size = 1840799, upload-time = "2026-05-31T17:33:58.56Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/70/7a/be4bd8bcbb24ea475856dd68159d78b03b2bb53dae369f69c9606b8888f5/pip-26.1-py3-none-any.whl", hash = "sha256:4e8486d821d814b77319acb7b9e8bf5a4ee7590a643e7cb21029f209be8573c1", size = 1812804, upload-time = "2026-04-26T21:00:03.194Z" },
+    { url = "https://files.pythonhosted.org/packages/5d/95/6b5cb3461ea5673ba0995989746db58eb18b91b54dbf331e72f569540946/pip-26.1.2-py3-none-any.whl", hash = "sha256:382ff9f685ee3bc25864f820aa50505825f10f5458ffff07e30a6d96e5715cab", size = 1813144, upload-time = "2026-05-31T17:33:56.772Z" },
 ]
 
 [[package]]
