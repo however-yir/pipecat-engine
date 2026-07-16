@@ -2396,7 +2396,7 @@ requires-dist = [
     { name = "azure-cognitiveservices-speech", marker = "extra == 'azure'", specifier = ">=1.47.0,<2" },
     { name = "camb-sdk", marker = "extra == 'camb'", specifier = ">=1.5.4,<2" },
     { name = "coremltools", marker = "extra == 'local-smart-turn'", specifier = ">=8.0" },
-    { name = "daily-python", marker = "extra == 'daily'", specifier = "~=0.27.0" },
+    { name = "daily-python", marker = "extra == 'daily'", specifier = ">=0.27,<0.29" },
     { name = "deepgram-sdk", marker = "extra == 'deepgram'", specifier = ">=6.1.1,<7" },
     { name = "docstring-parser", specifier = ">=0.16,<1" },
     { name = "einops", marker = "extra == 'moondream'", specifier = "~=0.8.0" },
@@ -2474,7 +2474,7 @@ requires-dist = [
     { name = "sentry-sdk", marker = "extra == 'sentry'", specifier = ">=2.28.0,<3" },
     { name = "simli-ai", marker = "extra == 'simli'", specifier = "~=2.0.1" },
     { name = "soundfile", marker = "extra == 'soundfile'", specifier = "~=0.13.1" },
-    { name = "soxr", specifier = "~=1.0.0" },
+    { name = "soxr", specifier = ">=1.0,<1.2" },
     { name = "speechmatics-voice", extras = ["smart"], marker = "extra == 'speechmatics'", specifier = "~=0.2.8" },
     { name = "strands-agents", marker = "extra == 'strands'", specifier = ">=1.9.1,<2" },
     { name = "tenacity", marker = "extra == 'livekit'", specifier = ">=8.2.3,<10.0.0" },
@@ -2486,7 +2486,7 @@ requires-dist = [
     { name = "transformers", marker = "extra == 'moondream'", specifier = ">=4.48.0,<6" },
     { name = "uvicorn", marker = "extra == 'runner'", specifier = ">=0.32.0,<1.0.0" },
     { name = "wait-for2", marker = "python_full_version < '3.12'", specifier = ">=0.4.1,<1" },
-    { name = "websockets", marker = "extra == 'websockets-base'", specifier = ">=13.1,<16.0" },
+    { name = "websockets", marker = "extra == 'websockets-base'", specifier = ">=13.1,<17.0" },
 ]
 provides-extras = ["aic", "anthropic", "assemblyai", "asyncai", "aws", "aws-nova-sonic", "azure", "cartesia", "camb", "cerebras", "daily", "deepgram", "deepseek", "elevenlabs", "fal", "fireworks", "fish", "gladia", "google", "gradium", "grok", "groq", "gstreamer", "heygen", "hume", "inworld", "koala", "kokoro", "langchain", "lemonslice", "livekit", "lmnt", "local", "local-smart-turn", "mcp", "mem0", "mistral", "mlx-whisper", "moondream", "nebius", "neuphonic", "novita", "nvidia", "openai", "rnnoise", "openrouter", "perplexity", "piper", "qwen", "resembleai", "rime", "runner", "sagemaker", "sambanova", "sarvam", "sentry", "silero", "simli", "smallest", "soniox", "soundfile", "speechmatics", "strands", "tavus", "together", "tracing", "ultravox", "webrtc", "websocket", "websockets-base", "whisper", "xai"]
 
@@ -2494,7 +2494,7 @@ provides-extras = ["aic", "anthropic", "assemblyai", "asyncai", "aws", "aws-nova
 dev = [
     { name = "build", specifier = "~=1.4.0" },
     { name = "coverage", specifier = "~=7.13.4" },
-    { name = "grpcio-tools", specifier = "~=1.78.0" },
+    { name = "grpcio-tools", specifier = ">=1.78,<1.81" },
     { name = "pip-tools", specifier = "~=7.5.3" },
     { name = "pre-commit", specifier = "~=4.5.1" },
     { name = "pyright", specifier = ">=1.1.404,<1.2" },
@@ -2504,7 +2504,7 @@ dev = [
     { name = "python-dotenv", specifier = ">=1.0.1,<2.0.0" },
     { name = "ruff", specifier = ">=0.12.11,<1" },
     { name = "setuptools", specifier = "~=78.1.1" },
-    { name = "setuptools-scm", specifier = "~=8.3.1" },
+    { name = "setuptools-scm", specifier = ">=8.3.1,<10.1.0" },
     { name = "towncrier", specifier = "~=25.8.0" },
 ]
 docs = [
@@ -3566,7 +3566,7 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "1.26.0"
+version = "1.28.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -3584,9 +3584,9 @@ dependencies = [
     { name = "typing-inspection" },
     { name = "uvicorn", marker = "sys_platform != 'emscripten'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/fc/6d/62e76bbb8144d6ed86e202b5edd8a4cb631e7c8130f3f4893c3f90262b10/mcp-1.26.0.tar.gz", hash = "sha256:db6e2ef491eecc1a0d93711a76f28dec2e05999f93afd48795da1c1137142c66", size = 608005, upload-time = "2026-01-24T19:40:32.468Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/6e/77/9450b8f251a13affb6281997d0523c4615f8a8b35d0b21ff30db3a5aac9d/mcp-1.28.1.tar.gz", hash = "sha256:d51e36a5f5644faea4f85ea649bfffa6bc6c26770d42798ad6a3de3d2ba69683", size = 638501, upload-time = "2026-06-26T12:57:29.093Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fd/d9/eaa1f80170d2b7c5ba23f3b59f766f3a0bb41155fbc32a69adfa1adaaef9/mcp-1.26.0-py3-none-any.whl", hash = "sha256:904a21c33c25aa98ddbeb47273033c435e595bbacfdb177f4bd87f6dceebe1ca", size = 233615, upload-time = "2026-01-24T19:40:30.652Z" },
+    { url = "https://files.pythonhosted.org/packages/e2/5e/d118fce19f87a2e7d8101c35c8ae0ec289098a4df0ff244cec23e415aca0/mcp-1.28.1-py3-none-any.whl", hash = "sha256:2726bca5e7193f61c5dde8b12500a6de2d9acf6d1a1c0be9e8c2e706437991df", size = 222620, upload-time = "2026-06-26T12:57:27.218Z" },
 ]
 
 [package.optional-dependencies]
